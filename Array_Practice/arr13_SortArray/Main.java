@@ -29,6 +29,31 @@ public class Main {
         arr[j] = temp;
     }
 
+
+    // Using two pointer
+    static void sortZeroesAndOnestwopointer(int[] arr){
+        int n = arr.length;
+        int left = 0;
+        int right = n-1;
+
+        while(left < right){
+            if(arr[left] == 1 && arr[right] == 0){
+                swap(arr, left, right);
+                left++;
+                right--;
+            }
+            
+            if(arr[left] == 0){
+                left++;
+            }
+            if(arr[right] == 1){
+                right--;
+            }
+        }
+    }
+
+
+    // Using basic method
     static void sortZeroesAndOnes(int[] arr){
         int n = arr.length;
         int zeroes = 0;
@@ -62,7 +87,8 @@ public class Main {
 
         System.out.print("Original array: ");
         printArr(arr);
-        sortZeroesAndOnes(arr);
+        // sortZeroesAndOnes(arr);
+        sortZeroesAndOnestwopointer(arr);
         System.out.print("Sorted array: ");
         printArr(arr);
     }
